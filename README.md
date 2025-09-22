@@ -193,3 +193,151 @@ Review Railway deployment logs
 
 Ensure all configuration files are properly formatted
 
+
+Yes, exactly! You can run it in Termux on your Android device or in terminal on your PC - the code works the same way locally as it does on Railway.
+
+📱 Running in Termux (Android)
+Step 1: Install Termux
+Download Termux from Google Play Store or F-Droid
+
+Open Termux
+
+Step 2: Setup in Termux
+bash
+# Update packages
+pkg update && pkg upgrade
+
+# Install Python and git
+pkg install python git
+
+# Clone your repository
+git clone https://github.com/yourusername/grassbot-telegram
+cd grassbot-telegram
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set environment variables
+export TELEGRAM_BOT_TOKEN="your_actual_bot_token"
+export ADMIN_CHAT_IDS='["your_actual_chat_id"]'
+
+# Run the bot
+python main.py
+💻 Running on PC/Laptop
+Windows (Command Prompt/PowerShell):
+bash
+# Clone repository
+git clone https://github.com/yourusername/grassbot-telegram
+cd grassbot-telegram
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set environment variables (Windows CMD)
+set TELEGRAM_BOT_TOKEN=your_actual_bot_token
+set ADMIN_CHAT_IDS=["your_actual_chat_id"]
+
+# Run
+python main.py
+Windows (PowerShell):
+powershell
+$env:TELEGRAM_BOT_TOKEN="your_actual_bot_token"
+$env:ADMIN_CHAT_IDS='["your_actual_chat_id"]'
+python main.py
+Linux/Mac:
+bash
+git clone https://github.com/yourusername/grassbot-telegram
+cd grassbot-telegram
+pip install -r requirements.txt
+export TELEGRAM_BOT_TOKEN="your_actual_bot_token"
+export ADMIN_CHAT_IDS='["your_actual_chat_id"]'
+python main.py
+🔄 Same Code, Different Environments
+The code works identically in all environments:
+
+✅ Railway: 24/7 cloud hosting (recommended)
+
+✅ Termux: Run on your Android phone
+
+✅ PC/Laptop: Run on your computer
+
+✅ VPS: Run on a virtual private server
+
+⚖️ Pros and Cons:
+Railway (Cloud) - Recommended
+✅ 24/7 operation (runs even when your phone is off)
+
+✅ No battery drain
+
+✅ Better reliability
+
+❌ Requires deployment setup
+
+Termux (Local on Phone)
+✅ Easy to test
+
+✅ Immediate control
+
+❌ Only runs when Termux is open
+
+❌ Drains phone battery
+
+❌ Internet connection required
+
+PC (Local on Computer)
+✅ Good for development
+
+✅ Easy to debug
+
+❌ Only runs when computer is on
+
+❌ Not 24/7 unless you leave PC running
+
+🎯 Recommended Approach:
+Start with Railway deployment first - get it running in the cloud for 24/7 operation.
+
+Then test locally in Termux to make sure everything works and for quick testing.
+
+📱 Termux Specific Tips:
+bash
+# Keep Termux running in background
+termux-wake-lock
+
+# Install additional useful packages
+pkg install termux-api termux-tools
+
+# Run in background (even when app closed)
+# Use Termux:Widget or third-party apps to keep it running
+🔧 Environment Variables Permanent Setup:
+For local running, you can create a .env file (but don't upload to GitHub):
+
+Create .env file in your project folder:
+
+env
+TELEGRAM_BOT_TOKEN=your_actual_bot_token_here
+ADMIN_CHAT_IDS=["your_actual_chat_id_here"]
+Then modify main.py to load from .env:
+
+python
+from dotenv import load_dotenv
+load_dotenv()  # Add this at the top of main.py
+🚀 Quick Test in Termux:
+If you want to test quickly:
+
+Install Termux
+
+Run the commands above
+
+See if bot starts without errors
+
+Then deploy to Railway for 24/7 operation
+
+✅ Bottom Line:
+Yes, the same exact code works everywhere! You can:
+
+Test locally in Termux (quick and easy)
+
+Deploy to Railway for 24/7 operation (recommended for production)
+
+Which one do you want to try first? I recommend starting with Railway deployment since your GitHub repository is already complete! 🚀
+
