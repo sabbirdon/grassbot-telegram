@@ -1,0 +1,8 @@
+[start]
+cmd = "python main.py"
+
+[build]
+image = "python:3.11"
+
+[phases.setup]
+cmds = ["pip install -r requirements.txt"]
